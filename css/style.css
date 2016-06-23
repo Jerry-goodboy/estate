@@ -1,0 +1,94 @@
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+html, body {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	color: rgb(62, 62, 62);
+	font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
+}
+#container {
+	margin: 0 auto;
+	width: 670px;
+	height: 100%;
+}
+.h2 {
+	padding-bottom: 10px;
+	margin-top: 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #e7e7eb;
+}
+.cs-intro {
+	padding: 10px;
+    box-sizing: border-box !important;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-style: none solid solid;
+    border-color: rgb(204, 204, 204);
+    box-shadow: rgb(204, 204, 204) 0px 0px 8px;
+    word-wrap: break-word !important;
+    text-align: justify;
+}
+.cs-intro-span-strong {
+	font-weight: bolder;
+}
+.cs-title {
+	margin-top: 10px;
+    padding: 16px;
+    font-size: 18.018px;
+    line-height: 38.4384px;
+    color: rgb(62, 62, 62);
+    border: 1px dashed rgb(183, 184, 184);
+    border-radius: 10px;
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
+    background-color: rgb(255, 255, 255);
+}
+.cs-title-number {
+	min-height: 1em;
+    text-align: center;
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
+    line-height: 2em;
+}
+.cs-title-number span {
+    color: rgb(255, 169, 0);
+}
+.cs-title-number span em{
+	font-style: italic;
+}
+.cs-title-number span em span{
+	line-height: 34.1333px;
+    font-size: 36px;
+}
+.cs-title-abstract {
+	min-height: 1em;
+    text-align: center;
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
+}
+.cs-title-abstract span {
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    background-color: rgb(0, 122, 170);
+}
+.cs-content {
+	line-height: 1.7;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: justify;
+    word-wrap: break-word !important;
+}
+.cs-img-box {
+	margin: 20px auto 30px;
+    border: 0px;
+    vertical-align: middle;
+    display: block;
+    width: 600px;
+    visibility: visible !important;
+    height: auto !important;
+}
