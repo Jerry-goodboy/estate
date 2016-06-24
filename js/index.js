@@ -294,6 +294,9 @@ function chart1 () {
         {
             type : 'category',
             boundaryGap : false,
+            splitLine: {
+            	show: false
+            },
             data : ['(1-4层）别墅','（5-8层）洋房','9-11层（小高层）','12-18层（小高层）','18层以上（高层）']
         }
     ],
@@ -301,8 +304,16 @@ function chart1 () {
         {
             type : 'value',
             show : true,
-            axisLabel : {
+            axisLabel: {
                 formatter: '{value} '
+            },
+            splitLine: {
+            	show: true,
+            	lineStyle: {
+            		color: '#aaa',
+				    width: 1,
+				    type: 'dashed'
+            	}
             }
         }
     ],
@@ -340,6 +351,9 @@ function chart2 () {
         {
             type : 'category',
             boundaryGap : false,
+            splitLine: {
+            	show: false,
+            },
 
             data : ['60㎡以下','60-90㎡','90-120㎡','120-150㎡','150㎡以上']
         }
@@ -350,6 +364,14 @@ function chart2 () {
             show : true,
             axisLabel : {
                 formatter: '{value} '
+            },
+            splitLine: {
+            	show: true,
+            	lineStyle: {
+            		color: '#aaa',
+				    width: 1,
+				    type: 'dashed'
+            	}
             }
         }
     ],
@@ -383,6 +405,9 @@ function chart3 () {
         {
             type : 'category',
             boundaryGap : false,
+            splitLine: {
+            	show: false,
+            },
             data : ['2013','2014','2015','2016']
         }
     ],
@@ -392,6 +417,14 @@ function chart3 () {
             show : true,
             axisLabel : {
                 formatter: '{value}'
+            },
+            splitLine: {
+            	show: true,
+            	lineStyle: {
+            		color: '#aaa',
+				    width: 1,
+				    type: 'dashed'
+            	}
             }
         }
     ],
