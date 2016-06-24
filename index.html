@@ -2,13 +2,89 @@
 <head>
 	<meta charset="UTF-8">
   	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    
 	<title>estate</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="https://js.arcgis.com/3.17/esri/css/esri.css">
+	<script src="https://js.arcgis.com/3.17/"></script>
 	<script src="js/jquery.js"></script>
 	<script src="js/echarts-all.js"></script>
 	<script src="js/index.js"></script>
 	<script type="text/javascript">
 		$(function  () {
+			var map;
+			require([
+				"esri/map", "esri/Color", "esri/symbols/SimpleLineSymbol", "esri/symbols/SimpleMarkerSymbol", "esri/tasks/QueryTask","esri/tasks/query","esri/layers/GraphicsLayer","esri/graphicsUtils","esri/symbols/PictureMarkerSymbol","esri/graphic", "esri/layers/FeatureLayer", "esri/layers/ArcGISTiledMapServiceLayer", "esri/geometry/Extent", "esri/layers/ArcGISImageServiceLayer", 
+				"esri/layers/ImageServiceParameters", "dojo/parser", "dojo/domReady!"
+				], function(
+					Map, Color, SimpleLineSymbol, SimpleMarkerSymbol, QueryTask, Query,GraphicsLayer,graphicsUtils,PictureMarkerSymbol,Graphic, FeatureLayer, ArcGISTiledMapServiceLayer, Extent, ArcGISImageServiceLayer, 
+					ImageServiceParameters, parser
+					) {
+					map = new Map("map",{
+							  //nav:true,//8个pan 箭头
+							  slider:false,//左上的缩放 +/-;
+							  logo:false,//右下的esri logo
+							  showAttribution:false,//右下的gisNeu (logo左侧)
+							  extent: new Extent({xmin:117.67255102256046,ymin:39.06648939147723,xmax:117.91507758557971,ymax:39.2233553582866})
+							});
+					var tms = new ArcGISTiledMapServiceLayer("http://10.254.11.105:8399/arcgis/rest/services/yingxiang/MapServer");
+					
+					var queryCondition = "MC in ('和畅园','美林园','天和园','芦花庄园','锦庐园','南苑','兰苑','荣馨园','首玺园','尚苑','建设公寓','世茂生态城','金航湾','蓝领公寓','宝龙欧洲城','碧桂园•滨海城','力高•阳光海岸','新新家园','季景园','鲲玉园','鲲贝园','景杉园','香堤苑','鲲玺园','红树湾花园','芙蓉北苑','雅境园','芙蓉南苑','家和园','悦馨苑','兰景园','美韵园','璟苑','新颐园','依水园','首创康桥郡','澜水苑','煦园')";
+
+					
+					var qt = new QueryTask('http://10.254.11.101:8399/arcgis/rest/services/POIFW_js/MapServer/0');
+					var query = new Query();
+					query.returnGeometry = true;
+					query.outFields = ["*"];
+					//query.outSpatialReference = map.spatialReference;
+					query.where = queryCondition;
+
+					var parkgraphicsLayer = new GraphicsLayer();
+
+					qt.execute(query,function(results){
+						var parkgraphicsAry = results.features;
+				    	for (var i=0;i<results.features.length; i++)
+						{
+							var graphic=results.features[i];
+							
+							graphic.setSymbol(genSymbol(26, [207, 34, 171, 0.9]));
+							parkgraphicsLayer.add(graphic);
+				    	}
+
+					},function(){
+						alert("查询错误")
+					});
+
+					map.addLayer(tms);
+					map.addLayer(parkgraphicsLayer);
+
+					function genSymbol (size, color) {
+						return new SimpleMarkerSymbol(
+					          SimpleMarkerSymbol.STYLE_CIRCLE, 
+					          size, 
+					          new SimpleLineSymbol(
+					            SimpleLineSymbol.STYLE_NULL, 
+					            new Color([247, 34, 101, 0.9]), 
+					            1
+					          ),
+					          new Color(color)
+					        );
+					}
+				});
+		
+/*
+					var symbol = new SimpleMarkerSymbol(
+			          SimpleMarkerSymbol.STYLE_CIRCLE, 
+			          12, 
+			          new SimpleLineSymbol(
+			            SimpleLineSymbol.STYLE_NULL, 
+			            new Color([247, 34, 101, 0.9]), 
+			            1
+			          ),
+			          new Color([207, 34, 171, 0.5])
+			        );*/
 		});
 	</script>
 </head>
@@ -19,6 +95,7 @@
 			<span class="cs-intro-span-strong">aaaaaaaaaaaaaaaaaaa</span>
 			<span>bbbbbbbbbbbbbb <br> ccccccccccccccccc</span>
 		</div>
+		<div id="map" style="width:600px;height:500px;"></div>
 		<div class="cs-title">
 			<p class="cs-title-number"><span><em><strong><span>1</span></strong></em></span></p>
 			<p class="cs-title-abstract"><span>dsfdsafdafda</span></p>
