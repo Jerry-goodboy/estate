@@ -32,6 +32,7 @@ html, body {
     box-shadow: rgb(204, 204, 204) 0px 0px 8px;
     word-wrap: break-word !important;
     text-align: justify;
+    line-height: 30px;
 }
 .cs-intro-span-strong {
 	font-weight: bolder;
@@ -91,4 +92,14 @@ html, body {
     width: 600px;
     visibility: visible !important;
     height: auto !important;
+}
+#map1, #map2, #map3, #map4 {
+    width: 600px;
+    height: 390px;
+    margin: 15px auto 25px;
+}
+#chart1, #chart2, #chart3 {
+    width: 670px;
+    height: 300px;
+    margin: 15px auto 25px;
 }
