@@ -95,11 +95,80 @@ html, body {
 }
 #map1, #map2, #map3, #map4 {
     width: 600px;
-    height: 390px;
+    height: 0px;
     margin: 15px auto 25px;
+    position: relative;
 }
 #chart1, #chart2, #chart3 {
     width: 670px;
     height: 300px;
     margin: 15px auto 25px;
+}
+.cs-map1-mask {
+    width:200px;
+    height:250px;
+    background:transparent;
+    z-index:9999;
+    position:absolute;
+    right:0;
+    top:80px
+}
+.cs-map1-mask div {
+    color:#fff;
+    text-align: left;
+    line-height: 26px;
+    height: 26px;
+    font-size: 1.05em;
+}
+.cs-map1-mask div span:first-child {
+    margin: 0;
+    padding: 0;
+    display: block;
+    height: 21px;
+    width: 100px;
+    text-align: right;
+    line-height: 21px;
+    margin-top: 3px;
+    float: left;
+}
+.cs-map1-mask div span:last-child {
+    margin: 0;
+    padding: 0;
+    display: block;
+    height: 21px;
+    width: 50px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 3px;
+    border-radius: 5px;
+}
+.cs-map1-mask div:nth-of-type(1) span:first-child {
+    
+}
+.cs-map1-mask div:nth-of-type(1) span:last-child {
+    background: rgba(255, 0, 0, 0.9);
+}
+.cs-map1-mask div:nth-of-type(2) span:last-child {
+    background: rgba(255, 128, 0, 0.9);
+}
+.cs-map1-mask div:nth-of-type(2) span:first-child {
+    
+}
+.cs-map1-mask div:nth-of-type(3) span:last-child {
+    background: rgba(255, 255, 0, 0.9);
+}
+.cs-map1-mask div:nth-of-type(4) span:last-child {
+    background: rgba(0, 255, 0, 0.9);
+}
+.cs-map1-mask div:nth-of-type(5) span:last-child {
+    background: rgba(0, 255, 255, 0.9);
+}
+.cs-map1-mask div:nth-of-type(6) span:last-child {
+    background: rgba(0, 0, 255, 0.9);
+}
+.cs-map1-mask div:nth-of-type(7) span:last-child {
+    background: rgba(128, 0, 255, 0.9);
+}
+.cs-map1-mask div:nth-of-type(8) span:last-child {
+    background: rgba(159, 95, 159, 0.9);
 }

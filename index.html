@@ -16,23 +16,24 @@
 	<script src="js/index.js"></script>
 	<script type="text/javascript">
 		$(function  () {
+			
 			chart1();
 			chart2();
 			chart3();
 			// require([
-			// 	"esri/map", "esri/Color", "esri/symbols/SimpleLineSymbol", "esri/symbols/SimpleMarkerSymbol", "esri/tasks/QueryTask","esri/tasks/query","esri/layers/GraphicsLayer","esri/graphicsUtils","esri/symbols/PictureMarkerSymbol","esri/graphic", "esri/layers/FeatureLayer", "esri/layers/ArcGISTiledMapServiceLayer", "esri/geometry/Extent", "esri/layers/ArcGISImageServiceLayer", 
+			// 	"esri/map","esri/symbols/PictureFillSymbol", "esri/Color", "esri/symbols/SimpleLineSymbol", "esri/symbols/SimpleMarkerSymbol", "esri/tasks/QueryTask","esri/tasks/query","esri/layers/GraphicsLayer","esri/graphicsUtils","esri/symbols/PictureMarkerSymbol","esri/graphic", "esri/layers/FeatureLayer", "esri/layers/ArcGISTiledMapServiceLayer", "esri/geometry/Extent", "esri/layers/ArcGISImageServiceLayer", 
 			// 	"esri/layers/ImageServiceParameters", "dojo/parser", "dojo/domReady!"
 			// 	], function(
-			// 		Map, Color, SimpleLineSymbol, SimpleMarkerSymbol, QueryTask, Query,GraphicsLayer,graphicsUtils,PictureMarkerSymbol,Graphic, FeatureLayer, ArcGISTiledMapServiceLayer, Extent, ArcGISImageServiceLayer, 
+			// 		Map,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbol, QueryTask, Query,GraphicsLayer,graphicsUtils,PictureMarkerSymbol,Graphic, FeatureLayer, ArcGISTiledMapServiceLayer, Extent, ArcGISImageServiceLayer, 
 			// 		ImageServiceParameters, parser
 			// 		) {
-			// 		// map1(Map, Color, SimpleLineSymbol, SimpleMarkerSymbol, QueryTask, Query,GraphicsLayer,graphicsUtils,PictureMarkerSymbol,Graphic, FeatureLayer, ArcGISTiledMapServiceLayer, Extent, ArcGISImageServiceLayer, 
+			// 		map1(Map,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbol, QueryTask, Query,GraphicsLayer,graphicsUtils,PictureMarkerSymbol,Graphic, FeatureLayer, ArcGISTiledMapServiceLayer, Extent, ArcGISImageServiceLayer, 
+			// 		ImageServiceParameters, parser);
+			// 		// map2(Map,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbol, QueryTask, Query,GraphicsLayer,graphicsUtils,PictureMarkerSymbol,Graphic, FeatureLayer, ArcGISTiledMapServiceLayer, Extent, ArcGISImageServiceLayer, 
 			// 		// ImageServiceParameters, parser);
-			// 		// map2(Map, Color, SimpleLineSymbol, SimpleMarkerSymbol, QueryTask, Query,GraphicsLayer,graphicsUtils,PictureMarkerSymbol,Graphic, FeatureLayer, ArcGISTiledMapServiceLayer, Extent, ArcGISImageServiceLayer, 
+			// 		// map3(Map,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbol, QueryTask, Query,GraphicsLayer,graphicsUtils,PictureMarkerSymbol,Graphic, FeatureLayer, ArcGISTiledMapServiceLayer, Extent, ArcGISImageServiceLayer, 
 			// 		// ImageServiceParameters, parser);
-			// 		// map3(Map, Color, SimpleLineSymbol, SimpleMarkerSymbol, QueryTask, Query,GraphicsLayer,graphicsUtils,PictureMarkerSymbol,Graphic, FeatureLayer, ArcGISTiledMapServiceLayer, Extent, ArcGISImageServiceLayer, 
-			// 		// ImageServiceParameters, parser);
-			// 		// map4(Map, Color, SimpleLineSymbol, SimpleMarkerSymbol, QueryTask, Query,GraphicsLayer,graphicsUtils,PictureMarkerSymbol,Graphic, FeatureLayer, ArcGISTiledMapServiceLayer, Extent, ArcGISImageServiceLayer, 
+			// 		// map4(Map,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbol, QueryTask, Query,GraphicsLayer,graphicsUtils,PictureMarkerSymbol,Graphic, FeatureLayer, ArcGISTiledMapServiceLayer, Extent, ArcGISImageServiceLayer, 
 			// 		// ImageServiceParameters, parser);
 			// 	});
 		
@@ -50,19 +51,159 @@
 			<p class="cs-title-number"><span><em><strong><span>1</span></strong></em></span></p>
 			<p class="cs-title-abstract"><span>生态城房势</span></p>
 		</div>
-		<p class="cs-content">生态城房势</p>
-		<p class="cs-content">生态城房势</p>
+		<p class="cs-content">首先是生态城的价格分布，将生态城38个小区按每平米均价，画到了图上(点的大小和颜色都和价格正相关，价格的区间取的是10000 - 20000 / 平米，大于20000以20000计，小于亦然)。</p>
+		<p class="cs-content">可以看到价格区间在10000/平米以下的楼盘数量和10000/平米~20000/平米之间楼盘数量相差无几，大于20000/平米价格的小区只有香堤苑一个楼盘，由此可见，生态城的房价还有很大的上升空间。</p>
 		
 		<img class="cs-img-box" src="imgs/map1.PNG">
 
-		<!-- <div id="map1" ></div> -->
+		<div id="map1" >
+			<div class="cs-map1-mask" >
+				<!-- one year -->
+				<!-- <div>
+					<span class="cs-map1-mask-span-name">嘉铭</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">万科</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">生井</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">建投</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">世茂</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">生态投资</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">生星</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">万通</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div> -->
+
+				<!-- half year -->
+				<!-- <div>
+					<span class="cs-map1-mask-span-name">万科</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">嘉铭</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">世茂</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">建投</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">万通</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">生井</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">公屋公司</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">美利丰</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div> -->
+
+				<!-- quarter year -->
+				<!-- <div>
+					<span class="cs-map1-mask-span-name">万科</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">嘉铭</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">世茂</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">建投</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">万通</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">投资</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">生井</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">美利丰</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div> -->
+
+				<!-- one month -->
+				<!-- <div>
+					<span class="cs-map1-mask-span-name">嘉铭</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">建投</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">万科</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">世茂</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">万通</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">投资</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">生井</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div>
+				<div>
+					<span class="cs-map1-mask-span-name">美利丰</span>
+					<span class="cs-map1-mask-span-color"></span>
+				</div> -->
+
+			</div>
+		</div>
+
 		
 		<div class="cs-title">
 			<p class="cs-title-number"><span><em><strong><span>2</span></strong></em></span></p>
 			<p class="cs-title-abstract"><span>聊聊涨价</span></p>
 		</div>
-		<p class="cs-content">聊聊涨价</p>
-		<p class="cs-content">聊聊涨价</p>
+		<p class="cs-content">本以为在房地产大热的如今，生态城的房价也会水涨船高，可是通过真实的数据得出的结果却大大出乎意料</p>
+		<p class="cs-content">通过计算2014年底的房价值和2015年底的房价值，涨价的楼盘以红色标出，未涨价或降价的楼盘以绿色标出，可见从2015年生态城的房价整体是跌的，只有少部分楼盘进行了涨价。</p>
 		
 		<img class="cs-img-box" src="imgs/map2.PNG">
 		<!-- <div id="map2" ></div> -->
@@ -71,36 +212,80 @@
 			<p class="cs-title-number"><span><em><strong><span>3</span></strong></em></span></p>
 			<p class="cs-title-abstract"><span>最贵的房在哪？</span></p>
 		</div>
-		<p class="cs-content">最贵的房在哪？</p>
-		<p class="cs-content">最贵的房在哪？</p>
-		
+		<p class="cs-content">生态城平均房价在11000/平米左右，为寻找最贵的房子都分布在哪里，以16000/平米为界，
+			将超过此值的房子在地图上画出。</p>
+
 		<img class="cs-img-box" src="imgs/map3.PNG">
 		<!-- <div id="map2" ></div> -->
 
 		<div class="cs-title">
 			<p class="cs-title-number"><span><em><strong><span>4</span></strong></em></span></p>
+			<p class="cs-title-abstract"><span>销售速度怎样？</span></p>
+		</div>
+		<p class="cs-content">根据公式（总套数 减去 未销售面积）/总套数 得到生态城小区的销售率，再按照销售率 60%以下（蓝色）、60%到80%之间（绿色）和大于80%（红色）分为三个档，画在地图上</p>
+		<p class="cs-content">可见生态城楼盘的销售态势良好，保有很高的销售率，生态城的房子还是很受市场欢迎的。</p>
+
+		<img class="cs-img-box" src="imgs/map4.PNG">
+		<!-- <div id="map2" ></div> -->
+
+		<div class="cs-title">
+			<p class="cs-title-number"><span><em><strong><span>5</span></strong></em></span></p>
+			<p class="cs-title-abstract"><span>2015年1月份销售最快的前八名开发商</span></p>
+		</div>
+		<p class="cs-content">最低销售率为81%</p>
+
+		<img class="cs-img-box" src="imgs/oneMonth.PNG">
+		<!-- <div id="map2" ></div> -->
+
+		<div class="cs-title">
+			<p class="cs-title-number"><span><em><strong><span>6</span></strong></em></span></p>
+			<p class="cs-title-abstract"><span>2015年第一季度销售最快的前八名开发商</span></p>
+		</div>
+		<p class="cs-content">最低销售率为83%</p>
+
+		<img class="cs-img-box" src="imgs/quarterYear.PNG">
+		<!-- <div id="map2" ></div> -->
+
+		<div class="cs-title">
+			<p class="cs-title-number"><span><em><strong><span>7</span></strong></em></span></p>
+			<p class="cs-title-abstract"><span>2015年前半年销售最快的前八名开发商</span></p>
+		</div>
+		<p class="cs-content">最低销售率为90%</p>
+
+		<img class="cs-img-box" src="imgs/halfYear.PNG">
+		<!-- <div id="map2" ></div> -->
+
+		<div class="cs-title">
+			<p class="cs-title-number"><span><em><strong><span>8</span></strong></em></span></p>
+			<p class="cs-title-abstract"><span>2015年全年销售最快的前八名开发商</span></p>
+		</div>
+		<p class="cs-content">前八名开发商的销售率均为100%</p>
+
+		<img class="cs-img-box" src="imgs/oneYear.PNG">
+		<!-- <div id="map2" ></div> -->
+
+		<div class="cs-title">
+			<p class="cs-title-number"><span><em><strong><span>9</span></strong></em></span></p>
 			<p class="cs-title-abstract"><span>最喜欢的房屋类型</span></p>
 		</div>
-		<p class="cs-content">最喜欢的房屋类型</p>
-		<p class="cs-content">最喜欢的房屋类型</p>
+		<p class="cs-content">来生态城买房的人都喜欢什么样的房屋类型呢？通过数据分析，可见12-18层（小高层）备受大家青睐。</p>
 
 		<div id="chart1"></div>
 
 		<div class="cs-title">
-			<p class="cs-title-number"><span><em><strong><span>5</span></strong></em></span></p>
+			<p class="cs-title-number"><span><em><strong><span>10</span></strong></em></span></p>
 			<p class="cs-title-abstract"><span>主流的房屋面积</span></p>
 		</div>
-		<p class="cs-content">主流的户型面积</p>
-		<p class="cs-content">主流的户型面积</p>
+		<p class="cs-content">目前生态城房产市场主流的户型面积是'90-120㎡'和'120-150㎡'的房屋，综合分析可得出，这两种面积的户型适合作为婚房，还有一家三代住一起方便老人看孩子，为刚需住房。</p>
+		
 
 		<div id="chart2"></div>
 
 		<div class="cs-title">
-			<p class="cs-title-number"><span><em><strong><span>5</span></strong></em></span></p>
+			<p class="cs-title-number"><span><em><strong><span>11</span></strong></em></span></p>
 			<p class="cs-title-abstract"><span>房地产的经济效益</span></p>
 		</div>
-		<p class="cs-content">房地产的经济效益</p>
-		<p class="cs-content">房地产的经济效益</p>
+		<p class="cs-content">房地产的经济效益无论在哪个地区都是很可观的，生态城也不另外。</p>
 
 		<div id="chart3"></div>
 	</div>
