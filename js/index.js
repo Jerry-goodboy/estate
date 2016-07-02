@@ -10,14 +10,40 @@ function map1 (Map,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbo
 			  showAttribution:false,//右下的gisNeu (logo左侧)
 			  extent: ext
 			});
-	var tms = new ArcGISTiledMapServiceLayer("http://10.254.11.105:8399/arcgis/rest/services/yingxiang/MapServer");
+	var tms = new ArcGISTiledMapServiceLayer("http://221.238.40.122:8399/arcgis/rest/services/yingxiang/MapServer");
 	
-	var estateArr = ['和畅园','美林园','天和园','芦花庄园','锦庐园','南苑','兰苑','荣馨园','首玺园','尚苑','建设公寓','世茂生态城','金航湾','蓝领公寓','宝龙欧洲城','碧桂园•滨海城','力高•阳光海岸','新新家园','季景园','鲲玉园','鲲贝园','景杉园','香堤苑','鲲玺园','红树湾花园','芙蓉北苑','雅境园','芙蓉南苑','家和园','悦馨苑','兰景园','美韵园','璟苑','新颐园','依水园','首创康桥郡','澜水苑','煦园'];
-
-	var queryCondition = "MC in ('和畅园','美林园','天和园','芦花庄园','锦庐园','南苑','兰苑','荣馨园','首玺园','尚苑','建设公寓','世茂生态城','金航湾','蓝领公寓','宝龙欧洲城','碧桂园•滨海城','力高•阳光海岸','新新家园','季景园','鲲玉园','鲲贝园','景杉园','香堤苑','鲲玺园','红树湾花园','芙蓉北苑','雅境园','芙蓉南苑','家和园','悦馨苑','兰景园','美韵园','璟苑','新颐园','依水园','首创康桥郡','澜水苑','煦园')";
-
+	var estateArr = ['和畅园','美林园','天和园','芦花庄园','锦庐园','南苑','兰苑','荣馨园','首玺园','尚苑','建设公寓','世茂生态城','金航湾','蓝领公寓','宝龙欧洲城','碧桂园•滨海城','力高•阳光海岸','新新家园','季景园','鲲玉园','鲲贝园','景杉园','香堤苑','鲲玺园','红树湾花园','芙蓉北苑','雅境园','芙蓉南苑','家和园','悦馨苑','兰景园','美韵园','璟苑','新颐园','依水园','首创康桥郡','澜水苑','煦园',"颐湖居","慧水苑","雅馨园"];
+/*
+嘉铭
+世茂
+吉宝
+建投
+天房
+万通
+生井
+万科
+远雄
+投资
+公屋公司
+阿亚拉
+美利丰
+生星
+双威
+生态投资
+航天
+众美
+富龙
+亿利
+富士
+碧桂园
+新苑投资
+力高
+宝龙
+*/
+	var queryCondition = "DM in ('和畅园','颐湖居','慧水苑','雅馨园','美林园','天和园','芦花庄园','锦庐园','南苑','兰苑','荣馨园','首玺园','尚苑','建设公寓','世茂生态城','金航湾','蓝领公寓','宝龙欧洲城','碧桂园•滨海城','力高•阳光海岸','新新家园','季景园','鲲玉园','鲲贝园','景杉园','香堤苑','鲲玺园','红树湾花园','芙蓉北苑','雅境园','芙蓉南苑','家和园','悦馨苑','兰景园','美韵园','璟苑','新颐园','依水园','首创康桥郡','澜水苑','煦园')";
+	// var queryCondition = "KFS='宝龙'"
 	
-	var qt = new QueryTask('http://10.254.11.101:8399/arcgis/rest/services/POIFW_js/MapServer/0');
+	var qt = new QueryTask('http://221.238.40.122:8399/arcgis/rest/services/FJXX/MapServer/0');
 	var query = new Query();
 	query.returnGeometry = true;
 	query.outFields = ["*"];
@@ -271,6 +297,31 @@ function map1 (Map,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbo
 		"生井",
 		"美利丰"
 	];
+
+	var leastRate = [
+		"新颐园",
+		"悦馨苑",
+		"依水园",
+		"澜水苑",
+		"兰景园",
+		"香堤苑",
+		"慧水苑",
+		"芦花庄园",
+		"颐湖居",
+		"煦园"
+	];
+	var leastOwner = [
+		"航天",
+		"万通",
+		"双威",
+		"生态投资",
+		"富龙",
+		"吉宝",
+		"建投",
+		"富士",
+		"亿利",
+		"新苑投资"
+	];
 			
 
 	qt.execute(query,function(results){
@@ -281,7 +332,7 @@ function map1 (Map,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbo
 			var genColor = [];
 			var genSize = 0;
 
-			var mc = results.features[i]["attributes"]["MC"];
+			var mc = results.features[i]["attributes"]["DM"];
 
 			// if(avgPrice[mc] > 16000){
 			// 	genColor = [239,  50,  12, 0.9];
@@ -502,47 +553,115 @@ function map1 (Map,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbo
 			// }
 
 // one month
+			// if(typeof mc == "undefined" ){
+			// 	genColor = [0, 0, 0, 0];
+			// 	genSize = 0;
+			// }else {
+			// 	if(mc == monthRate[0]){
+			// 		genColor = [255, 0, 0, 0.9];
+			// 		genSize = 16;
+					
+			// 	}
+			// 	else if (mc == monthRate[1]){
+			// 		genColor = [255, 128, 0, 0.9];
+			// 		genSize = 16;
+					
+			// 	}
+			// 	else if (mc == monthRate[2] ){
+			// 		genColor = [255, 255, 0, 0.9];
+			// 		genSize = 16;
+					
+			// 	}
+			// 	else if (mc == monthRate[3] || mc == monthRate[6]  || mc == monthRate[8] ){
+			// 		genColor = [0, 255, 0, 0.9];
+			// 		genSize = 16;
+					
+			// 	}
+			// 	else if (mc == monthRate[4]){
+			// 		genColor = [0, 255, 255, 0.9];
+			// 		genSize = 16;
+					
+			// 	}
+			// 	else if (mc == monthRate[5]){
+			// 		genColor = [0, 0, 255, 0.9];
+			// 		genSize = 16;
+					
+			// 	}
+			// 	else if (mc == monthRate[7]){
+			// 		genColor = [128, 0, 255, 0.9];
+			// 		genSize = 16;
+					
+			// 	}
+			// 	else if (mc == monthRate[9]){
+			// 		genColor = [159, 95, 159, 0.9];
+			// 		genSize = 16;
+					
+			// 	}
+			// 	else {
+			// 		genColor = [0, 0, 0, 0];
+			// 		genSize = 0;
+			// 	}
+			// }
+
+
+
+
+			genColor = [255, 0, 0, 0.9];
+			genSize = 16;
+
+// leastRate[67]
+
 			if(typeof mc == "undefined" ){
 				genColor = [0, 0, 0, 0];
 				genSize = 0;
 			}else {
-				if(mc == monthRate[0]){
+				if(mc == leastRate[0]){
 					genColor = [255, 0, 0, 0.9];
 					genSize = 16;
 					
 				}
-				else if (mc == monthRate[1]){
+				else if (mc == leastRate[1]){
 					genColor = [255, 128, 0, 0.9];
 					genSize = 16;
 					
 				}
-				else if (mc == monthRate[2] ){
+				else if (mc == leastRate[2] ){
 					genColor = [255, 255, 0, 0.9];
 					genSize = 16;
 					
 				}
-				else if (mc == monthRate[3] || mc == monthRate[6]  || mc == monthRate[8] ){
+				else if (mc == leastRate[3] ){
 					genColor = [0, 255, 0, 0.9];
 					genSize = 16;
 					
 				}
-				else if (mc == monthRate[4]){
+				else if (mc == leastRate[4]){
 					genColor = [0, 255, 255, 0.9];
 					genSize = 16;
 					
 				}
-				else if (mc == monthRate[5]){
+				else if (mc == leastRate[5]){
 					genColor = [0, 0, 255, 0.9];
 					genSize = 16;
 					
 				}
-				else if (mc == monthRate[7]){
+				else if (mc == leastRate[6]){
 					genColor = [128, 0, 255, 0.9];
 					genSize = 16;
 					
 				}
-				else if (mc == monthRate[9]){
+				else if (mc == leastRate[7]){
 					genColor = [159, 95, 159, 0.9];
+					genSize = 16;
+					
+				}
+				else if (mc == leastRate[8]){
+					genColor = [259, 19, 159, 0.9];
+					genSize = 16;
+					
+				}
+				else if (mc == leastRate[9]){
+					genColor = [19, 95, 259, 0.9];
 					genSize = 16;
 					
 				}
@@ -551,21 +670,6 @@ function map1 (Map,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbo
 					genSize = 0;
 				}
 			}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 			graphic.setSymbol(genCircleSymbol(genSize, genColor));
 			parkgraphicsLayer.add(graphic);

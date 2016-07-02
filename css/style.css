@@ -95,6 +95,7 @@ html, body {
 }
 #map1, #map2, #map3, #map4 {
     width: 600px;
+    /*height: 390px;*/
     height: 0px;
     margin: 15px auto 25px;
     position: relative;
@@ -142,17 +143,11 @@ html, body {
     margin-top: 3px;
     border-radius: 5px;
 }
-.cs-map1-mask div:nth-of-type(1) span:first-child {
-    
-}
 .cs-map1-mask div:nth-of-type(1) span:last-child {
     background: rgba(255, 0, 0, 0.9);
 }
 .cs-map1-mask div:nth-of-type(2) span:last-child {
     background: rgba(255, 128, 0, 0.9);
-}
-.cs-map1-mask div:nth-of-type(2) span:first-child {
-    
 }
 .cs-map1-mask div:nth-of-type(3) span:last-child {
     background: rgba(255, 255, 0, 0.9);
@@ -171,4 +166,20 @@ html, body {
 }
 .cs-map1-mask div:nth-of-type(8) span:last-child {
     background: rgba(159, 95, 159, 0.9);
+}
+.cs-map1-mask div:nth-of-type(9) span:last-child {
+    background: rgba(259, 19, 159, 0.9);
+}
+.cs-map1-mask div:nth-of-type(10) span:last-child {
+    background: rgba(19, 95, 259, 0.9);
+}
+.cs-kfs-select {
+    height: 30px;
+    border: 1px solid rgba(19, 95, 259, 0.9);
+}
+.cs-img-kfs {
+    display: none;
+}
+.cs-img-kfs-block {
+    display: block;
 }
