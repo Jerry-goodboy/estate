@@ -1,0 +1,146 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+	<title>estate</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/echarts-all.js"></script>
+	<script src="js/index.js"></script>
+	<script type="text/javascript">
+		$(function  () {
+			$(".cs-kfs-select").on("change", function  () {
+				var selectInx = $(".cs-kfs-select").get(0).selectedIndex;
+				$(".cs-img-kfs").css({
+					"display":"none"
+				});
+				$(".cs-img-kfs").eq(selectInx).css({
+					"display":"block"
+				});
+			});
+			
+		
+		});
+	</script>
+</head>
+<body>
+	<div id="container">
+
+		<div class="cs-title">
+			<p class="cs-title-number"><span><em><strong><span>1</span></strong></em></span></p>
+			<p class="cs-title-abstract"><span>销售速度怎样？</span></p>
+		</div>
+		<p class="cs-content">根据公式（总套数 减去 未销售面积）/总套数 得到生态城小区的销售率，再按照销售率 60%以下（蓝色）、60%到80%之间（绿色）和大于80%（红色）分为三个档，画在地图上</p>
+		<p class="cs-content">可见生态城楼盘的销售态势良好，保有很高的销售率，生态城的房子还是很受市场欢迎的。</p>
+
+		<img class="cs-img-box" src="imgs/map4.PNG">
+		<!-- <div id="map2" ></div> -->
+
+		<div class="cs-title">
+			<p class="cs-title-number"><span><em><strong><span>2</span></strong></em></span></p>
+			<p class="cs-title-abstract"><span>2015年1月份销售最快的前八名开发商</span></p>
+		</div>
+		<p class="cs-content">最低销售率为81%</p>
+
+		<img class="cs-img-box" src="imgs/oneMonth.PNG">
+		<!-- <div id="map2" ></div> -->
+
+		<div class="cs-title">
+			<p class="cs-title-number"><span><em><strong><span>3</span></strong></em></span></p>
+			<p class="cs-title-abstract"><span>2015年第一季度销售最快的前八名开发商</span></p>
+		</div>
+		<p class="cs-content">最低销售率为83%</p>
+
+		<img class="cs-img-box" src="imgs/quarterYear.PNG">
+		<!-- <div id="map2" ></div> -->
+
+		<div class="cs-title">
+			<p class="cs-title-number"><span><em><strong><span>4</span></strong></em></span></p>
+			<p class="cs-title-abstract"><span>2015年前半年销售最快的前八名开发商</span></p>
+		</div>
+		<p class="cs-content">最低销售率为90%</p>
+
+		<img class="cs-img-box" src="imgs/halfYear.PNG">
+		<!-- <div id="map2" ></div> -->
+
+		<div class="cs-title">
+			<p class="cs-title-number"><span><em><strong><span>5</span></strong></em></span></p>
+			<p class="cs-title-abstract"><span>2015年全年销售最快的前八名开发商</span></p>
+		</div>
+		<p class="cs-content">前八名开发商的销售率均为100%</p>
+
+		<img class="cs-img-box" src="imgs/oneYear.PNG">
+		<!-- <div id="map2" ></div> -->
+
+		<div class="cs-title">
+			<p class="cs-title-number"><span><em><strong><span>6</span></strong></em></span></p>
+			<p class="cs-title-abstract"><span>销售最慢的前十名开发商</span></p>
+		</div>
+		<p class="cs-content">销售最慢的前十名开发商</p>
+
+		<img class="cs-img-box" src="imgs/leastRate.PNG">
+		<!-- <div id="map2" ></div> -->
+
+		<div class="cs-title">
+			<p class="cs-title-number"><span><em><strong><span>7</span></strong></em></span></p>
+			<p class="cs-title-abstract"><span>生态城的开发商</span></p>
+		</div>
+		<p class="cs-content">生态城的开发商</p>
+
+		<select class="cs-kfs-select">
+			<option>嘉铭</option>
+			<option>世茂</option>
+			<option>吉宝</option>
+			<option>建投</option>
+			<option>天房</option>
+			<option>万通</option>
+			<option>生井</option>
+			<option>万科</option>
+			<option>远雄</option>
+			<option>投资</option>
+			<option>阿亚拉</option>
+			<option>美利丰</option>
+			<option>生星</option>
+			<option>双威</option>
+			<option>生态投资</option>
+			<option>航天</option>
+			<option>众美</option>
+			<option>富龙</option>
+			<option>亿利</option>
+			<option>富士</option>
+			<option>碧桂园</option>
+			<option>新苑投资</option>
+			<option>力高</option>
+			<option>宝龙</option>
+		</select>
+		<img class="cs-img-box cs-img-kfs cs-img-kfs-block" src="imgs/嘉铭.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/世茂.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/吉宝.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/建投.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/天房.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/万通.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/生井.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/万科.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/远雄.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/投资.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/阿亚拉.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/美利丰.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/生星.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/双威.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/生态投资.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/航天.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/众美.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/富龙.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/亿利.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/富士.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/碧桂园.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/新苑投资.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/力高.PNG">
+		<img class="cs-img-box cs-img-kfs" src="imgs/宝龙.PNG">
+		<!-- <div id="map2" ></div> -->
+	</div>
+</body>
+</html>
