@@ -1,0 +1,102 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+	<title>estate table</title>
+	<style>
+		* {
+		    margin: 0;
+		    padding: 0;
+		}
+		#tablebox {
+			width: 1000px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		.cs-h1 {
+			color: #5b8e8d;
+		    font-size: 3rem;
+		    font-weight: 700;
+		    letter-spacing: -0.01em;
+		    margin-bottom: 0.75em;
+		    text-transform: uppercase;
+		    line-height: 1.2;
+		    margin: 10px auto;
+		}
+		.cs-table {
+			background: white;
+		    border-collapse: collapse;
+		    margin: 1.25em 0 0;
+	        padding: 0;
+            box-sizing: border-box;
+            width: 100%;
+		}
+		.cs-table tr, .cs-table th, .cs-table td {
+			border: none;
+		    border-bottom: 1px solid #e4ebeb;
+		    font-size: .875rem;
+		}
+		.cs-table td {
+			padding: 15px 12px;
+		    text-align: left;
+		}
+		.cs-table tr td {
+			background: #eaf3f5;
+		    color: #999999;
+		}
+		.cs-table tr:nth-of-type(2n+2) td {
+		    background: #ffffff;
+		}
+		.cs-table tr td:nth-of-type(1) {
+			width: 10%;
+		}
+		.cs-table tr td:nth-of-type(2) {
+			width: 25%;
+		}
+		.cs-table tr td:nth-of-type(3) {
+			width: 15%;
+		}
+		.cs-table tr td:nth-of-type(4) {
+			width: 15%;
+		}
+		.cs-table tr td:nth-of-type(5) {
+			width: 35%;
+		}
+	</style>
+	<script src="js/jquery.js"></script>
+	<script>
+		$(function () {
+			var estateArr = ['和畅园','美林园','天和园','芦花庄园','锦庐园','南苑','兰苑','荣馨园','首玺园','尚苑','建设公寓','世茂生态城','金航湾','蓝领公寓','宝龙欧洲城','碧桂园•滨海城','力高•阳光海岸','新新家园','季景园','鲲玉园','鲲贝园','景杉园','香堤苑','鲲玺园','红树湾花园','芙蓉北苑','雅境园','芙蓉南苑','家和园','悦馨苑','兰景园','美韵园','璟苑','新颐园','依水园','首创康桥郡','澜水苑','煦园',"颐湖居","慧水苑","雅馨园"];
+			// 红树湾花园	1001	有	较好	   只有2014年有完整年数据
+			var tableHTML = '';
+			for(var i=0;i<estateArr.length;i++){
+				tableHTML += '<tr><td>';
+				tableHTML += i+1;
+				tableHTML += '</td><td>';
+				tableHTML += estateArr[i];
+				tableHTML += '</td><td>有</td><td>较好</td><td>从2013年1月份开始到至今的完整月数据</td></tr>';
+			}
+			$('.cs-table').append(tableHTML);
+		});
+	</script>
+</head>
+<body>
+	<div id="tablebox">
+		<h1 class="cs-h1">房价数据简介</h1>
+		<table class="cs-table">
+			<thead>
+				<tr>
+					<td>序号</td>
+					<td>小区名称</td>
+					<td>数据</td>
+					<td>质量</td>
+					<td>备注</td>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</body>
+</html>
