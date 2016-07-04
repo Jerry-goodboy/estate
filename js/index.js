@@ -1,3 +1,5 @@
+basemap = "http://221.238.40.122:8399/arcgis/rest/services/yingxiang/MapServer";
+querymap = 'http://221.238.40.122:8399/arcgis/rest/services/FJXX/MapServer/0';
 function map1 (Map,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbol, QueryTask, Query,GraphicsLayer,graphicsUtils,PictureMarkerSymbol,Graphic, FeatureLayer, ArcGISTiledMapServiceLayer, Extent, ArcGISImageServiceLayer, 
 	ImageServiceParameters, parser) {
 
@@ -10,9 +12,8 @@ function map1 (Map,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbo
 			  showAttribution:false,//右下的gisNeu (logo左侧)
 			  extent: ext
 			});
-	var tms = new ArcGISTiledMapServiceLayer("http://221.238.40.122:8399/arcgis/rest/services/yingxiang/MapServer");
+	var tms = new ArcGISTiledMapServiceLayer(basemap);
 	
-	var estateArr = ['和畅园','美林园','天和园','芦花庄园','锦庐园','南苑','兰苑','荣馨园','首玺园','尚苑','建设公寓','世茂生态城','金航湾','蓝领公寓','宝龙欧洲城','碧桂园•滨海城','力高•阳光海岸','新新家园','季景园','鲲玉园','鲲贝园','景杉园','香堤苑','鲲玺园','红树湾花园','芙蓉北苑','雅境园','芙蓉南苑','家和园','悦馨苑','兰景园','美韵园','璟苑','新颐园','依水园','首创康桥郡','澜水苑','煦园',"颐湖居","慧水苑","雅馨园"];
 /*
 嘉铭
 世茂
@@ -40,10 +41,12 @@ function map1 (Map,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbo
 力高
 宝龙
 */
+	var estateArr = ['和畅园','美林园','天和园','芦花庄园','锦庐园','南苑','兰苑','荣馨园','首玺园','尚苑','建设公寓','世茂生态城','金航湾','蓝领公寓','宝龙欧洲城','碧桂园•滨海城','力高•阳光海岸','新新家园','季景园','鲲玉园','鲲贝园','景杉园','香堤苑','鲲玺园','红树湾花园','芙蓉北苑','雅境园','芙蓉南苑','家和园','悦馨苑','兰景园','美韵园','璟苑','新颐园','依水园','首创康桥郡','澜水苑','煦园',"颐湖居","慧水苑","雅馨园"];
+
 	var queryCondition = "DM in ('和畅园','颐湖居','慧水苑','雅馨园','美林园','天和园','芦花庄园','锦庐园','南苑','兰苑','荣馨园','首玺园','尚苑','建设公寓','世茂生态城','金航湾','蓝领公寓','宝龙欧洲城','碧桂园•滨海城','力高•阳光海岸','新新家园','季景园','鲲玉园','鲲贝园','景杉园','香堤苑','鲲玺园','红树湾花园','芙蓉北苑','雅境园','芙蓉南苑','家和园','悦馨苑','兰景园','美韵园','璟苑','新颐园','依水园','首创康桥郡','澜水苑','煦园')";
 	// var queryCondition = "KFS='宝龙'"
 	
-	var qt = new QueryTask('http://221.238.40.122:8399/arcgis/rest/services/FJXX/MapServer/0');
+	var qt = new QueryTask(querymap);
 	var query = new Query();
 	query.returnGeometry = true;
 	query.outFields = ["*"];
@@ -696,24 +699,40 @@ function map1 (Map,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbo
 	}
 }
 
-function map2 (Map,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbol, QueryTask, Query,GraphicsLayer,graphicsUtils,PictureMarkerSymbol,Graphic, FeatureLayer, ArcGISTiledMapServiceLayer, Extent, ArcGISImageServiceLayer, 
+function map2 (Map,SimpleFillSymbol, Color,domClass, domConstruct, Popup, PopupTemplate,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbol, QueryTask, Query,GraphicsLayer,graphicsUtils,PictureMarkerSymbol,Graphic, FeatureLayer, ArcGISTiledMapServiceLayer, Extent, ArcGISImageServiceLayer, 
 					ImageServiceParameters, parser) {
+
+	// var fill = new SimpleFillSymbol("solid", null, new Color("#A4CE67"));
+	// function resize(width, height) {
+	//     domStyle.set(this._content, {
+	// 	      width: width + "px",
+	// 	      height: height + "px"
+	// 	    });
+	//   }
+        var popup = new Popup({
+            titleInBody: false,
+            count:1
+        }, domConstruct.create("div"));
+        // domClass.add(popup.domNode, "dark");
+        popup.resize(300,200);
 	
 					var map = new Map("map2",{
 							  //nav:true,//8个pan 箭头
 							  slider:false,//左上的缩放 +/-;
 							  logo:false,//右下的esri logo
 							  showAttribution:false,//右下的gisNeu (logo左侧)
+							  infoWindow: popup,
 							  extent: new Extent({xmin:117.67255102256046,ymin:39.06648939147723,xmax:117.91507758557971,ymax:39.2233553582866})
 							});
-					var tms = new ArcGISTiledMapServiceLayer("http://10.254.11.105:8399/arcgis/rest/services/yingxiang/MapServer");
+					var tms = new ArcGISTiledMapServiceLayer(basemap);
 					
-					var estateArr = ['和畅园','美林园','天和园','芦花庄园','锦庐园','南苑','兰苑','荣馨园','首玺园','尚苑','建设公寓','世茂生态城','金航湾','蓝领公寓','宝龙欧洲城','碧桂园•滨海城','力高•阳光海岸','新新家园','季景园','鲲玉园','鲲贝园','景杉园','香堤苑','鲲玺园','红树湾花园','芙蓉北苑','雅境园','芙蓉南苑','家和园','悦馨苑','兰景园','美韵园','璟苑','新颐园','依水园','首创康桥郡','澜水苑','煦园'];
+					var estateArr = ['和畅园','美林园','天和园','芦花庄园','锦庐园','南苑','兰苑','荣馨园','首玺园','尚苑','建设公寓','世茂生态城','金航湾','蓝领公寓','宝龙欧洲城','碧桂园•滨海城','力高•阳光海岸','新新家园','季景园','鲲玉园','鲲贝园','景杉园','香堤苑','鲲玺园','红树湾花园','芙蓉北苑','雅境园','芙蓉南苑','家和园','悦馨苑','兰景园','美韵园','璟苑','新颐园','依水园','首创康桥郡','澜水苑','煦园',"颐湖居","慧水苑","雅馨园"];
 
-					var queryCondition = "MC in ('和畅园','美林园','天和园','芦花庄园','锦庐园','南苑','兰苑','荣馨园','首玺园','尚苑','建设公寓','世茂生态城','金航湾','蓝领公寓','宝龙欧洲城','碧桂园•滨海城','力高•阳光海岸','新新家园','季景园','鲲玉园','鲲贝园','景杉园','香堤苑','鲲玺园','红树湾花园','芙蓉北苑','雅境园','芙蓉南苑','家和园','悦馨苑','兰景园','美韵园','璟苑','新颐园','依水园','首创康桥郡','澜水苑','煦园')";
-
+					var queryCondition = "DM in ('和畅园','颐湖居','慧水苑','雅馨园','美林园','天和园','芦花庄园','锦庐园','南苑','兰苑','荣馨园','首玺园','尚苑','建设公寓','世茂生态城','金航湾','蓝领公寓','宝龙欧洲城','碧桂园•滨海城','力高•阳光海岸','新新家园','季景园','鲲玉园','鲲贝园','景杉园','香堤苑','鲲玺园','红树湾花园','芙蓉北苑','雅境园','芙蓉南苑','家和园','悦馨苑','兰景园','美韵园','璟苑','新颐园','依水园','首创康桥郡','澜水苑','煦园')";
+						
 					
-					var qt = new QueryTask('http://10.254.11.101:8399/arcgis/rest/services/POIFW_js/MapServer/0');
+					
+					var qt = new QueryTask(querymap);
 					var query = new Query();
 					query.returnGeometry = true;
 					query.outFields = ["*"];
@@ -722,8 +741,21 @@ function map2 (Map,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbo
 
 					var parkgraphicsLayer = new GraphicsLayer();
 
+					var template = new PopupTemplate({
+				          title: "生态城房势",
+				          description: "<table>"+
+				          "<tr><td style='border:1px solid #eee;font-size:.8em;padding: 5px 10px;'>小区名称</td><td style='border:1px solid #eee;font-size:.8em;padding: 5px 10px;'>{DM}</td></tr>"+
+				          "<tr><td style='border:1px solid #eee;font-size:.8em;padding: 5px 10px;'>开发商</td><td style='border:1px solid #eee;font-size:.8em;padding: 5px 10px;'>{KFS}</td></tr>"+
+				          "<tr><td style='border:1px solid #eee;font-size:.8em;padding: 5px 10px;'>建设进度</td><td style='border:1px solid #eee;font-size:.8em;padding: 5px 10px;'>{JSJD}</td></tr>"+
+				          "<tr><td style='border:1px solid #eee;font-size:.8em;padding: 5px 10px;'>地址</td><td style='border:1px solid #eee;font-size:.8em;padding: 5px 10px;'>{DZ}</td></tr>"+
+				          "</table>"
+				        });
+					parkgraphicsLayer.setInfoTemplate(template);
+
 					qt.execute(query,function(results){
 						var parkgraphicsAry = results.features;
+						// console.log(results.features[0]["attributes"]);
+						
 				    	for (var i=0;i<results.features.length; i++)
 						{
 							var graphic=results.features[i];
@@ -746,8 +778,9 @@ function map2 (Map,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbo
 				    	}
 
 					},function(){
-						alert("查询错误")
+						alert("查询错误");
 					});
+
 
 					map.addLayer(tms);
 					map.addLayer(parkgraphicsLayer);

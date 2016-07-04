@@ -1,0 +1,66 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+	<title>estate</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
+	<link rel="stylesheet" href="https://js.arcgis.com/3.17/esri/css/esri.css">
+	<script src="https://js.arcgis.com/3.17/"></script>
+	<style>
+		#map2 {
+			height: 390px;
+		}
+	</style>
+	<script src="js/jquery.js"></script>
+	<script src="js/echarts-all.js"></script>
+	<script src="js/index.js"></script>
+	<script type="text/javascript">
+		$(function  () {
+			require([
+				"esri/map","esri/symbols/SimpleFillSymbol", "esri/Color","dojo/dom-class", "dojo/dom-construct","esri/dijit/Popup", "esri/dijit/PopupTemplate","esri/symbols/PictureFillSymbol", "esri/Color", "esri/symbols/SimpleLineSymbol", "esri/symbols/SimpleMarkerSymbol", "esri/tasks/QueryTask","esri/tasks/query","esri/layers/GraphicsLayer","esri/graphicsUtils","esri/symbols/PictureMarkerSymbol","esri/graphic", "esri/layers/FeatureLayer", "esri/layers/ArcGISTiledMapServiceLayer", "esri/geometry/Extent", "esri/layers/ArcGISImageServiceLayer", 
+				"esri/layers/ImageServiceParameters", "dojo/parser", "dojo/domReady!"
+				], function(
+					Map,SimpleFillSymbol, Color,domClass, domConstruct, Popup, PopupTemplate,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbol, QueryTask, Query,GraphicsLayer,graphicsUtils,PictureMarkerSymbol,Graphic, FeatureLayer, ArcGISTiledMapServiceLayer, Extent, ArcGISImageServiceLayer, 
+					ImageServiceParameters, parser
+					) {
+					// map1(Map,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbol, QueryTask, Query,GraphicsLayer,graphicsUtils,PictureMarkerSymbol,Graphic, FeatureLayer, ArcGISTiledMapServiceLayer, Extent, ArcGISImageServiceLayer, 
+					// ImageServiceParameters, parser);
+					map2(Map,SimpleFillSymbol, Color,domClass, domConstruct, Popup, PopupTemplate,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbol, QueryTask, Query,GraphicsLayer,graphicsUtils,PictureMarkerSymbol,Graphic, FeatureLayer, ArcGISTiledMapServiceLayer, Extent, ArcGISImageServiceLayer, 
+					ImageServiceParameters, parser);
+					// map3(Map,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbol, QueryTask, Query,GraphicsLayer,graphicsUtils,PictureMarkerSymbol,Graphic, FeatureLayer, ArcGISTiledMapServiceLayer, Extent, ArcGISImageServiceLayer, 
+					// ImageServiceParameters, parser);
+					// map4(Map,PictureFillSymbol, Color, SimpleLineSymbol, SimpleMarkerSymbol, QueryTask, Query,GraphicsLayer,graphicsUtils,PictureMarkerSymbol,Graphic, FeatureLayer, ArcGISTiledMapServiceLayer, Extent, ArcGISImageServiceLayer, 
+					// ImageServiceParameters, parser);
+				});
+		
+		});
+	</script>
+</head>
+<body>
+	<div id="container">
+		<h2 class="h2">中新天津生态城房价研究</h2>
+		<div class="cs-intro">
+			<span class="cs-intro-span-strong">中新天津生态城 探路人与自然和谐相处宜居之城</span>
+			<span>上升为国家战略10年来，天津滨海新区全方位推进绿色城市、绿色经济和生态环境建设，资源高效利用、生态环境良好、人与自然和谐相处的宜居之城建设。</span>
+		</div>
+		<div class="cs-title">
+			<p class="cs-title-number"><span><em><strong><span>1</span></strong></em></span></p>
+			<p class="cs-title-abstract"><span>生态城房势</span></p>
+		</div>
+		<p class="cs-content">首先是生态城的价格分布，将生态城38个小区按每平米均价，画到了图上(点的大小和颜色都和价格正相关，价格的区间取的是10000 - 20000 / 平米，大于20000以20000计，小于亦然)。</p>
+		<p class="cs-content">可以看到价格区间在10000/平米以下的楼盘数量和10000/平米~20000/平米之间楼盘数量相差无几，大于20000/平米价格的小区只有香堤苑一个楼盘，由此可见，生态城的房价还有很大的上升空间。</p>
+		
+		<!-- <img class="cs-img-box" src="imgs/map1.PNG"> -->
+
+		<div id="map2" >
+			
+		</div>
+
+		
+	</div>
+</body>
+</html>
