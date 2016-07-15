@@ -1,0 +1,161 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+	<title>estate</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/echarts-all.js"></script>
+	<script src="js/index.js"></script>
+	<style>
+		#chart4, #chart5 {
+		    width: 670px;
+		    height: 300px;
+		    margin: 15px auto 25px;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function  () {
+			chart4();
+			chart5();
+
+function chart4 () {
+	var chart4 = echarts.init(document.getElementById('chart4'));
+
+	var chart1Option = {
+    title : {
+        text: '租房租售比（%）',
+        subtext: ''
+    },
+    legend: {
+        data:['租房租售比'],
+        x: 'right'
+    },
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            splitLine: {
+            	show: false,
+            },
+
+            data : ['60㎡以下','60-90㎡','90-120㎡','120-150㎡','150㎡以上']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            show : true,
+            axisLabel : {
+                formatter: '{value} '
+            },
+            splitLine: {
+            	show: true,
+            	lineStyle: {
+            		color: '#aaa',
+				    width: 1,
+				    type: 'dashed'
+            	}
+            }
+        }
+    ],
+    series : [
+        {
+            name:'租房租售比',
+            type:'line',
+
+            data:[0.17, 0.31, 0.25, 0.23, 0.13]
+        }
+    ]
+    };
+    chart4.setOption(chart1Option);
+}
+
+function chart5 () {
+	var chart5 = echarts.init(document.getElementById('chart5'));
+
+	var chart1Option = {
+    title : {
+        text: '市场需求的租房面积（%）',
+        subtext: ''
+    },
+    legend: {
+        data:['市场需求的租房面积'],
+        x: 'right'
+    },
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            splitLine: {
+            	show: false,
+            },
+
+            data : ['60㎡以下','60-90㎡','90-120㎡','120-150㎡','150㎡以上']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            show : true,
+            axisLabel : {
+                formatter: '{value} '
+            },
+            splitLine: {
+            	show: true,
+            	lineStyle: {
+            		color: '#aaa',
+				    width: 1,
+				    type: 'dashed'
+            	}
+            }
+        }
+    ],
+    series : [
+        {
+            name:'市场需求的租房面积',
+            type:'line',
+
+            data:[5, 33, 55, 14, 1]
+        }
+    ]
+    };
+    chart5.setOption(chart1Option);
+}
+		});
+		/*
+房屋户型	   平均面积	平均租金	  平均房价	评价租售比	套数
+60㎡以下	   47.6	    920		10881.1		0.17%		5
+60-90㎡	   78.3		1906.1	8308.2		0.31%		33
+90-120㎡	   100.7	2389.1	9393.9		0.25%		55
+120-150㎡  133.1		2985.7	17540.1		0.23%		14
+150㎡以上   240		4000	12489.3		0.13%		1
+		 */
+	</script>
+</head>
+<body>
+	<div id="container">
+
+		<div class="cs-title">
+			<p class="cs-title-number"><span><em><strong><span>1</span></strong></em></span></p>
+			<p class="cs-title-abstract"><span>租房租售比</span></p>
+		</div>
+		<p class="cs-content">租房租售比</p>
+
+		<div id="chart4"></div>
+
+		<div class="cs-title">
+			<p class="cs-title-number"><span><em><strong><span>2</span></strong></em></span></p>
+			<p class="cs-title-abstract"><span>市场需求的租房面积</span></p>
+		</div>
+		<p class="cs-content">市场需求的租房面积</p>
+		
+
+		<div id="chart5"></div>
+
+	</div>
+</body>
+</html>
